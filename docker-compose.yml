@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  sample:
+    build:
+      context: .
+      dockerfile: .devcontainer/Dockerfile
+    tty: true
+    volumes:
+      - ./:/code
+    ports:
+      - '8000:8000'
