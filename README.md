@@ -1,12 +1,13 @@
 # Transclate CLI
+
 ```bash
 Create Transcription in various languages and Embed it as Subtitles in Movies (powered by AWS AI services)
   ______                           __      __          ________    ____
  /_  __/________ _____  __________/ /___ _/ /____     / ____/ /   /  _/
-  / / / ___/ __ `/ __ \/ ___/ ___/ / __ `/ __/ _ \   / /   / /    / /  
- / / / /  / /_/ / / / (__  ) /__/ / /_/ / /_/  __/  / /___/ /____/ /   
-/_/ /_/   \__,_/_/ /_/____/\___/_/\__,_/\__/\___/   \____/_____/___/   
-                                                                       
+  / / / ___/ __ `/ __ \/ ___/ ___/ / __ `/ __/ _ \   / /   / /    / /
+ / / / /  / /_/ / / / (__  ) /__/ / /_/ / /_/  __/  / /___/ /____/ /
+/_/ /_/   \__,_/_/ /_/____/\___/_/\__,_/\__/\___/   \____/_____/___/
+
 ```
 
 `Transclate とは、transcribe + translate の造語`
@@ -15,6 +16,17 @@ Create Transcription in various languages and Embed it as Subtitles in Movies (p
 2. 複数言語(日本語、英語、スペイン語、中国語、韓国語、ポルトガル語、ドイツ語、フランス語に対応)に翻訳し、
 3. closed caption として動画に埋め込む  
    機能をもつ CLI アプリケーションのサンプル
+
+## Overview
+
+This is a Python library that allows you to simultaneously generate transcript and translated text.
+And also you can embed multiple translated captions in your media file.
+
+## Installation
+
+The library is not yet deployed to Github, so for now clone and install from local.
+
+`pip install .`
 
 ## Requirement
 
@@ -27,6 +39,7 @@ To Install boto3 the SDK Package for python using pip cmd as mentioned below
 ```bash
 pip install boto3 --user
 ```
+
 ```bash
 # Step1: Update and upgrade Homebrew Formulae
 brew update
@@ -36,16 +49,17 @@ brew install ffmpeg
 ```
 
 - python v3.8
-- 個人のAWS アカウント
+- 個人の AWS アカウント
 - boto3
 - アウトプット用 S3 バケット
 - IAM 権限(amazon translate, amazon S3, amazon transcribe へのアクセス権限)
 - mp4 形式の動画ファイル
   などなど
 
-## CLI コマンド
+## Usage(CLI)
 
-### 基本コマンド
+### Basic command
+
 ```bash
 Usage: transclate [OPTIONS] COMMAND [ARGS]...
 
@@ -62,7 +76,9 @@ Commands:
   start-transcribe
   start-translate
 ```
+
 ### サブコマンド (start-all)
+
 ```bash
 Usage: transclate start-all [OPTIONS] MEDIA_FILE
 
@@ -76,14 +92,18 @@ Options:
                                   es: スペイン語, pt: ポルトガル語, de:ドイツ語, fr: フランス語)
   --help                          Show this message and exit.
 ```
+
 ### サブコマンド(start-embed)
+
 ```bash
 Usage: transclate start-embed [OPTIONS] MEDIA_FILE
 
 Options:
   --help  Show this message and exit.
 ```
+
 ### サブコマンド(start-transcribe)
+
 ```bash
 Usage: transclate start-transcribe [OPTIONS] MEDIA_FILE
 
@@ -94,7 +114,9 @@ Options:
                                   de:ドイツ語, fr: フランス語)
   --help                          Show this message and exit.
 ```
+
 ### サブコマンド(start-translate)
+
 ```bash
 Usage: transclate start-translate [OPTIONS] [VTT_FILE]
 
@@ -102,5 +124,6 @@ Options:
   --help  Show this message and exit.
 ```
 
-### 
+###
+
 ## アーキテクチャ
