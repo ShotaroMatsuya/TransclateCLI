@@ -1,0 +1,4 @@
+.envrc
+input_dir/*.*
+output_dir/*.*
+.dccache
